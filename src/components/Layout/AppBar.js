@@ -11,7 +11,6 @@ import {
 const ElevationScroll = ({ children }) => {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    target: window,
     threshold: 0
   })
 

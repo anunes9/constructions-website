@@ -20,7 +20,6 @@ const ScrollTop = ({ children }) => {
   const classes = useStyles()
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    target: window,
     threshold: 100,
   })
 
