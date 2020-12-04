@@ -1,0 +1,51 @@
+@import "../../styles/defaults.scss";
+
+.app-bar {
+  &__container {
+    background-color: $breaker-bay;
+  }
+
+  &__title {
+    margin-left: 10px !important;
+    font-size: 22px !important;
+    font-family: $monteserrat;
+    font-weight: 500 !important;
+  }
+
+  &__back-to-top {
+    background-color: $breaker-bay !important;
+    color: white;
+  }
+}
+
+.footer {
+  &__container {
+    background-color: $solitude;
+    text-align: center;
+    padding: 16px;
+  }
+
+  &__title {
+    font-size: 18px !important;
+    font-family: $roboto;
+    font-weight: 500 !important;
+  }
+
+  &__label {
+    font-size: 16px !important;
+    font-family: $roboto;
+    font-weight: 500 !important;
+  }
+
+  &__text {
+    font-size: 16px !important;
+    font-family: $roboto;
+    margin-top: 8px !important;
+  }
+
+  &__footnote {
+    font-size: 14px !important;
+    font-family: $roboto;
+    margin-top: 24px !important;
+  }
+}

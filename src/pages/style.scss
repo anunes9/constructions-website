@@ -1,0 +1,10 @@
+@import "../styles/defaults.scss";
+
+.home {
+  &__image {
+    width: inherit;
+    max-width: 720px !important;
+    margin: auto;
+    display: block;
+  }
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Container, CssBaseline } from '@material-ui/core'
 import ElevatedAppBar from './AppBar'
 import BackToTop from './BackToTop'
+import Footer from './Footer'
 
 const Layout = ({ children }) => {
   return (
@@ -14,6 +15,8 @@ const Layout = ({ children }) => {
       <Container>
         {children}
       </Container>
+
+      <Footer />
 
       <BackToTop />
     </React.Fragment>
