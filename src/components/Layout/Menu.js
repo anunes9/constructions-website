@@ -43,6 +43,16 @@ const Menu = ({ drawerState, setDrawer }) => (
 
         <ListItem
           button
+          key={'Galeria'}
+          onClick={() => navigate('/galeria')}
+        >
+          <ListItemText primary={'Galeria'} />
+        </ListItem>
+
+        <Divider />
+
+        <ListItem
+          button
           key={'Contactos'}
           onClick={() => navigate('/contactos')}
         >
