@@ -49,3 +49,16 @@
     margin-top: 24px !important;
   }
 }
+
+.menu {
+  &__container {
+    width: 'auto'
+  }
+}
+
+.body {
+  &__container {
+    background-color: $white;
+    height: calc(100vh - 265px);
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { navigate } from 'gatsby'
 import {
   AppBar,
   CssBaseline,
@@ -26,7 +27,7 @@ ElevationScroll.propTypes = {
   children: PropTypes.element.isRequired
 }
 
-const ElevatedAppBar = (props) => (
+const ElevatedAppBar = ({ setDrawer, ...props }) => (
   <React.Fragment>
     <CssBaseline />
 
@@ -34,19 +35,27 @@ const ElevatedAppBar = (props) => (
       <AppBar className='app-bar__container'>
         <Toolbar>
           <IconButton
-            edge="start" color="inherit" aria-label="menu">
+            aria-label='menu'
+            color='inherit'
+            edge='start'
+            onClick={() => setDrawer(true)}
+          >
             <MenuIcon />
           </IconButton>
 
-          <Typography className='app-bar__title'>
+          <Typography className='app-bar__title' onClick={() => navigate('/')}>
             Luís Rodrigues Construções
           </Typography>
         </Toolbar>
       </AppBar>
     </ElevationScroll>
 
-    <Toolbar id="back-to-top-anchor" />
+    <Toolbar id='back-to-top-anchor' />
   </React.Fragment>
 )
+
+ElevatedAppBar.propTypes = {
+  setDrawer: PropTypes.func.isRequired
+}
 
 export default ElevatedAppBar

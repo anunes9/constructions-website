@@ -4,15 +4,20 @@ import { Container, CssBaseline } from '@material-ui/core'
 import ElevatedAppBar from './AppBar'
 import BackToTop from './BackToTop'
 import Footer from './Footer'
+import Menu from './Menu'
 
 const Layout = ({ children }) => {
+  const [drawerState, setDrawer] = React.useState(false)
+
   return (
     <React.Fragment>
       <CssBaseline />
 
-      <ElevatedAppBar />
+      <ElevatedAppBar setDrawer={setDrawer} />
 
-      <Container>
+      <Menu drawerState={drawerState} setDrawer={setDrawer} />
+
+      <Container className='body__container'>
         {children}
       </Container>
 
