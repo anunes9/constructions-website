@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Constructions',
-    description: 'Constructions Lda',
+    title: 'Bem Feito Remodelaçōes',
+    description: 'Bem Feito Remodelaçōes',
     author: '@andrenunes',
   },
   plugins: [

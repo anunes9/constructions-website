@@ -7,7 +7,7 @@ const Footer = () => (
     <Container>
       <Typography className='footer__title'>Contactos</Typography>
 
-      <Typography className='footer__text'>
+      {/* <Typography className='footer__text'>
         <Typography className='footer__label' component='span'>
           Telefone
         </Typography> 213456789
@@ -17,16 +17,16 @@ const Footer = () => (
         <Typography className='footer__label' component='span'>
           Telemóvel
         </Typography> 913456789
-      </Typography>
+      </Typography> */}
 
       <Typography className='footer__text'>
         <Typography className='footer__label' component='span'>
           Email
-        </Typography> email@email.com
+        </Typography> bemfeito.remodelacoes@gmail.com
       </Typography>
 
       <Typography className='footer__footnote'>
-        2020 @ Todos os direitos reservados - andrenunes
+        2021 @ Todos os direitos reservados - andrenunes
       </Typography>
     </Container>
   </Box>

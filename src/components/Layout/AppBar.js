@@ -44,7 +44,7 @@ const ElevatedAppBar = ({ setDrawer, ...props }) => (
           </IconButton>
 
           <Typography className='app-bar__title' onClick={() => navigate('/')}>
-            Luís Rodrigues Construções
+            Bem Feito Remodelaçōes
           </Typography>
         </Toolbar>
       </AppBar>

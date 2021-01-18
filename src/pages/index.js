@@ -2,7 +2,7 @@ import React from 'react'
 import { navigate } from 'gatsby'
 import { Button } from '@material-ui/core'
 import Layout from '../components/Layout'
-import LOGO from '../images/logo.jpg'
+import LOGO from '../images/logo2.png'
 import './style.scss'
 
 const IndexPage = () => (

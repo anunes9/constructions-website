@@ -8,7 +8,6 @@ import {
   ListItem,
   ListItemText
 } from '@material-ui/core'
-import ArrowRightIcon from '@material-ui/icons/ArrowRight'
 import { navigate } from 'gatsby'
 import './style.scss'
 
@@ -21,12 +20,38 @@ const Menu = ({ drawerState, setDrawer }) => (
       onKeyDown={() => setDrawer(false)}
     >
       <List>
+        <ListItem button key={'Inicio'} onClick={() => navigate('/')}>
+          <ListItemText primary={'Início'} />
+        </ListItem>
+
+        <Divider />
+
         <ListItem
           button
-          key={'Inicio'}
-          onClick={() => navigate('/')}
+          key={'Serviços'}
+          onClick={() => navigate('/servicos')}
         >
-          <ListItemText primary={'Início'} />
+          <ListItemText primary={'Reabilitação / Remodelação'} />
+        </ListItem>
+
+        <Divider />
+
+        <ListItem
+          button
+          key={'Manutenção'}
+          onClick={() => navigate('/manutencao')}
+        >
+          <ListItemText primary={'Manutenção'} />
+        </ListItem>
+
+        <Divider />
+
+        <ListItem
+          button
+          key={'Areas'}
+          onClick={() => navigate('/areas')}
+        >
+          <ListItemText primary={'Áreas'} />
         </ListItem>
 
         <Divider />
@@ -43,58 +68,10 @@ const Menu = ({ drawerState, setDrawer }) => (
 
         <ListItem
           button
-          key={'Galeria'}
-          onClick={() => navigate('/galeria')}
-        >
-          <ListItemText primary={'Galeria'} />
-        </ListItem>
-
-        <Divider />
-
-        <ListItem
-          button
           key={'Contactos'}
           onClick={() => navigate('/contactos')}
         >
           <ListItemText primary={'Contactos'} />
-        </ListItem>
-
-        <Divider />
-
-        <ListItem key={'Serviços'}>
-          <ListItemText primary={'Serviços'} />
-        </ListItem>
-
-        <Divider />
-
-        <ListItem
-          button
-          key={'Cozinhas'}
-          onClick={() => navigate('/cozinhas')}
-        >
-          <ArrowRightIcon />
-
-          <ListItemText primary={'Cozinhas'} />
-        </ListItem>
-
-        <ListItem
-          button
-          key={'Quartos'}
-          onClick={() => navigate('/quartos')}
-        >
-          <ArrowRightIcon />
-
-          <ListItemText primary={'Quartos'} />
-        </ListItem>
-
-        <ListItem
-          button
-          key={'Casas de banho'}
-          onClick={() => navigate('/wc')}
-        >
-          <ArrowRightIcon />
-
-          <ListItemText primary={'Casas de banho'} />
         </ListItem>
       </List>
     </Box>

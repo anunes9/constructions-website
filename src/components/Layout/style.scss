@@ -2,7 +2,7 @@
 
 .app-bar {
   &__container {
-    background-color: $breaker-bay;
+    background-color: $green;
   }
 
   &__title {
@@ -13,16 +13,19 @@
   }
 
   &__back-to-top {
-    background-color: $breaker-bay !important;
+    background-color: $green !important;
     color: white;
   }
 }
 
 .footer {
   &__container {
-    background-color: $solitude;
+    background-color: $green;
     text-align: center;
     padding: 16px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 
   &__title {
@@ -59,6 +62,6 @@
 .body {
   &__container {
     background-color: $white;
-    height: calc(100vh - 265px);
+    // height: calc(100vh);
   }
 }
