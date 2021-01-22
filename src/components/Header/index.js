@@ -6,11 +6,16 @@ import { TextLink } from '../TextLink'
 import LOGO from '../../images/logo_cores.png'
 import './style.scss'
 
+
 export const Header = () => {
   const preventDefault = event => event.preventDefault()
   const [headerClass, setHeaderClass] = useState('header')
   const [textClass, setTextClass] = useState('')
-  const [mobile, setMobile] = useState(window.innerWidth < 426)
+
+  let width
+  if (typeof window !== 'undefined') width = window.innerWidth
+
+  const [mobile, setMobile] = useState(width < 481)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +24,10 @@ export const Header = () => {
       setTextClass(scroll ? 'header__text' : '')
     }
 
-    const handleWidth = () => setMobile(window.innerWidth < 426)
+    const handleWidth = () => {
+      if (typeof window !== 'undefined') width = window.innerWidth
+      setMobile(width < 481)
+    }
 
     document.addEventListener('scroll', handleScroll)
     window.addEventListener('resize', handleWidth)
