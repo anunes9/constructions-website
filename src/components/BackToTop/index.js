@@ -42,11 +42,7 @@ ScrollTop.propTypes = {
 
 export const BackToTop = (props) => (
   <ScrollTop {...props}>
-    <Fab
-      className='app-bar__back-to-top'
-      size="small"
-      aria-label="scroll back to top"
-    >
+    <Fab className='back-to-top' size="small" aria-label="scroll back to top">
       <KeyboardArrowUpIcon />
     </Fab>
   </ScrollTop>

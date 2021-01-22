@@ -1,7 +1,9 @@
+@import "../../styles/defaults.scss";
+
 .top_images {
   align-items: center;
-  background-color: #cccccc;
-  background-image: url("../../images/cozinhas.jpg");
+  background-color: $light;
+  background-image: url("../../images/cozinha.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,11 +13,20 @@
   overflow-y: hidden;
   margin-top: -64px;
 
+  @media screen and (max-width: 480px) {
+    padding: 0 32px;
+  }
 
   p {
-    color: #ffffff;
+    color: $light;
     font-size: 64px;
-    font-family: Roboto, sans-serif;
+    font-family: $roboto;
     font-weight: 500;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: $secondary;
+
+    @media screen and (max-width: 480px) {
+      font-size: 40px;
+    }
   }
 }

@@ -1,3 +1,5 @@
+@import "../../styles/defaults.scss";
+
 .header {
   align-items: center;
   display: flex;
@@ -7,11 +9,29 @@
   position: sticky;
   top: 0;
   width: 100%;
-  background: linear-gradient(180deg, rgba(128,128,128,1) 0%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to top, rgba(255,255,255,0), rgba(128,128,128,1));
+
+  @media screen and (max-width: 480px) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-right: 16px;
+  }
+
+  &__solid {
+    background: $light;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+
+  &__text {
+    color: $secondary !important;
+  }
 
   &__logo {
     height: 64px;
-    background-color: #ffffff;
+
+    @media screen and (max-width: 480px) {
+      height: 40px;
+    }
   }
 
   &__options {
@@ -19,10 +39,10 @@
     flex-direction: row;
   }
 
-  &__button {
-    @media screen and (max-width: 480px) {
-      display: none;
-    }
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }
 
@@ -41,10 +61,10 @@
   }
 
   &__text {
-    font-family: Roboto, sans-serif;
+    font-family: $roboto;
     font-size: 18px;
     border: none;
-    color: #ffffff;
+    color: $light;
 
     &:hover {
       text-decoration: none;
@@ -60,13 +80,13 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: $whiteSmoke;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 
   a {
-    color: black;
+    color: $primary;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -75,17 +95,5 @@
       background-color: #ddd;
       text-decoration: none;
     }
-  }
-}
-
-.contact {
-  color: #ffffff;
-  font-family: Roboto, sans-serif;
-  font-size: 18px;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-    font-weight: 500;
   }
 }

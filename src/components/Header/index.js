@@ -1,52 +1,86 @@
-import React from 'react'
-import { Box, Button, Link, Typography } from '@material-ui/core'
-import LOGO from '../../images/logo2.png'
+import React, { useEffect, useState } from 'react'
+import { Box, Button, Link } from '@material-ui/core'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import { TextLink } from '../TextLink'
+import LOGO from '../../images/logo_cores.png'
 import './style.scss'
 
 export const Header = () => {
   const preventDefault = event => event.preventDefault()
+  const [headerClass, setHeaderClass] = useState('header')
+  const [textClass, setTextClass] = useState('')
+  const [mobile, setMobile] = useState(window.innerWidth < 426)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scroll = window.scrollY > 480
+      setHeaderClass(scroll ? 'header header__solid' : 'header')
+      setTextClass(scroll ? 'header__text' : '')
+    }
+
+    const handleWidth = () => setMobile(window.innerWidth < 426)
+
+    document.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleWidth)
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleWidth)
+    }
+  }, [])
+
+  if (mobile) {
+    return (
+      <Box className="header header__solid">
+        <Link href="#" onClick={preventDefault}>
+          <img className="header__logo" src={LOGO} alt="logo" />
+        </Link>
+
+        <Box className="header__options">
+          <Box className="dropdown">
+            <Box className="header__menu">
+              <IconButton>
+                <MenuIcon />
+              </IconButton>
+
+              <TextLink className="dropdown__text header__text">Menu</TextLink>
+            </Box>
+
+            <Box className="dropdown-content">
+              <TextLink>Serviços</TextLink>
+              <TextLink>Pedir Orçamento</TextLink>
+              <TextLink>Contactos</TextLink>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    )
+  }
 
   return (
-    <Box className="header">
+    <Box className={headerClass}>
       <Link href="#" onClick={preventDefault}>
         <img className="header__logo" src={LOGO} alt="logo" />
       </Link>
 
       <Box className="header__options">
         <Box className="dropdown">
-          <Link href="#" onClick={preventDefault}>
-            <Typography className="dropdown__text">Serviços</Typography>
-          </Link>
+          <TextLink className={`dropdown__text ${textClass}`}>
+            Serviços
+          </TextLink>
 
           <Box className="dropdown-content">
-            <Typography>
-              <Link href="#" onClick={preventDefault}>
-                Cozinhas
-              </Link>
-            </Typography>
-
-            <Typography>
-              <Link href="#" onClick={preventDefault}>
-                Hoteis
-              </Link>
-            </Typography>
-
-            <Typography>
-              <Link href="#" onClick={preventDefault}>
-                Quartos
-              </Link>
-            </Typography>
+            <TextLink>Cozinhas</TextLink>
+            <TextLink>Hoteis</TextLink>
+            <TextLink>Quartos</TextLink>
           </Box>
         </Box>
 
-        <Typography>
-          <Link className="contact" href="#" onClick={preventDefault}>
-            Contactos
-          </Link>
-        </Typography>
+        <TextLink className={`dropdown__text ${textClass}`}>Contactos</TextLink>
       </Box>
 
-      <Box className="header__button">
+      <Box>
         <Button variant="contained">Pedir Orçamento</Button>
       </Box>
     </Box>

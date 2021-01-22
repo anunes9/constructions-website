@@ -1,17 +1,23 @@
+@import "../../styles/defaults.scss";
+
 .content {
   padding: 32px 0;
   max-width: 75%;
 
   &__title {
-    font-family: Roboto, sans-serif;
+    font-family: $signika;
     font-size: 64px;
-    color: #000000;
+    color: $primary;
     margin-bottom: 32px;
+
+    @media screen and (max-width: 480px) {
+      font-size: 40px;
+    }
   }
 
   &__text {
-    font-family: Roboto, sans-serif;
+    font-family: $roboto;
     font-size: 18px;
-    color: #000000;
+    color: $primary;
   }
 }

@@ -1,29 +1,30 @@
-// Hue: Blue
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;500;700&display=swap');
 
 // fonts
 $roboto: 'Roboto', sans-serif !important;
 $monteserrat: 'Monteserrat', sans-serif !important;
+$signika: 'Signika', sans-serif !important;
 
-// colors
-$breaker-bay: #537D7F;
-$botticelli: #99B7B8;
-$solitude: #D9E4E7;
-$narvik: #F7F6F3;
-$white: #FFF;
-
-$green: #4A8F22;
+// palette
+$dark: #01010101;
+$primary: #303841;
+$secondary: #3A4750;
+$accent: #F6C90E;
+$light: #EEEEEE;
+$whiteSmoke: #F1F1F1;
+$white: #FFFFFF;
 
 // breakpoints
 $mobile: 425px;
 $tablet: 768px;
 
 #___gatsby {
-  background-color: #ffffff;
+  background-color: $white;
   height: 100vh;
 }
 
 #gatsby-focus-wrapper {
-  background-color: #ffffff;
+  background-color: $white;
 }
