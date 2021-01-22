@@ -1,50 +1,5 @@
-@import "../styles/defaults.scss";
-
-.home {
-  &__image {
-    display: block;
-  }
-}
-
-.manutencao {
-  &__body {
-    padding: 24px 0;
-    width: 60%;
-    margin: auto;
-
-    @media only screen and (max-width: $mobile) {
-      width: 100%;
-      margin: auto;
-    }
-
-    @media only screen and (max-width: $tablet) {
-      width: 85%;
-      margin: auto;
-    }
-  }
-
-  &__title {
-    padding-bottom: 12px;
-    font-family: Monteserrat, sans-serif !important;
-    font-weight: bold !important;
-
-    @media only screen and (max-width: $mobile) {
-      font-size: 24px !important;
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__sub-list {
-    display: flex;
-    flex-direction: column;
-    padding-left: 12px;
-  }
-
-  &__list-item {
-    font-family: Monteserrat, sans-serif !important;
-  }
+.not_found_text {
+    font-family: Roboto, sans-serif;
+    font-size: 32px;
+    padding: 32px;
 }

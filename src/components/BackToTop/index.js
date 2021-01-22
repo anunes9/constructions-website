@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import { Fab,Zoom,useScrollTrigger } from '@material-ui/core'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'
+import './style.scss'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +40,7 @@ ScrollTop.propTypes = {
   children: PropTypes.element.isRequired
 }
 
-const BackToTop = (props) => (
+export const BackToTop = (props) => (
   <ScrollTop {...props}>
     <Fab
       className='app-bar__back-to-top'
@@ -50,5 +51,3 @@ const BackToTop = (props) => (
     </Fab>
   </ScrollTop>
 )
-
-export default BackToTop

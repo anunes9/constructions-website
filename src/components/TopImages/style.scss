@@ -1,0 +1,21 @@
+.top_images {
+  align-items: center;
+  background-color: #cccccc;
+  background-image: url("../../images/cozinhas.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 550px;
+  padding: 0 64px;
+  overflow-y: hidden;
+  margin-top: -64px;
+
+
+  p {
+    color: #ffffff;
+    font-size: 64px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+  }
+}

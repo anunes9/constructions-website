@@ -1,9 +1,14 @@
 import React from 'react'
-import Layout from '../components/Layout'
+import { Typography } from '@material-ui/core'
+import { Layout } from '../components/Layout'
+import { TopImages } from '../components/TopImages'
+import './style.scss'
 
 const NotFoundPage = () => (
   <Layout>
-    <h1>404: Not Found</h1>
+    <TopImages />
+
+    <Typography className="not_found_text">Página não encontrada</Typography>
   </Layout>
 )
 

@@ -1,21 +1,15 @@
 import React from 'react'
-import { navigate } from 'gatsby'
-import { Button } from '@material-ui/core'
-import Layout from '../components/Layout'
-import LOGO from '../images/logo2.png'
-import './style.scss'
+import { TopImages } from '../components/TopImages'
+import { Content } from '../components/Content'
+import { Layout } from '../components/Layout'
 
 const IndexPage = () => (
   <Layout>
-    <img className='home__image' src={LOGO} alt='logo' />
+    <React.Fragment>
+      <TopImages />
 
-    <Button
-      color='primary'
-      onClick={() => navigate('/orcamento')}
-      variant='outlined'
-    >
-      Peça já o seu orçamento
-    </Button>
+      <Content />
+    </React.Fragment>
   </Layout>
 )
 

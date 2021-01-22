@@ -1,0 +1,17 @@
+.content {
+  padding: 32px 0;
+  max-width: 75%;
+
+  &__title {
+    font-family: Roboto, sans-serif;
+    font-size: 64px;
+    color: #000000;
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    color: #000000;
+  }
+}

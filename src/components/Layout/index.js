@@ -1,32 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, CssBaseline } from '@material-ui/core'
-import ElevatedAppBar from './AppBar'
-import BackToTop from './BackToTop'
-import Footer from './Footer'
-import Menu from './Menu'
+import { CssBaseline } from '@material-ui/core'
+import { BackToTop } from '../BackToTop'
+import { Header } from '../Header'
+import { Footer } from '../Footer'
 
-const Layout = ({ children }) => {
-  const [drawerState, setDrawer] = React.useState(false)
+export const Layout = ({ children }) => (
+  <React.Fragment>
+    <CssBaseline />
 
-  return (
+    <Header />
+
     <React.Fragment>
-      <CssBaseline />
-
-      <ElevatedAppBar setDrawer={setDrawer} />
-
-      <Menu drawerState={drawerState} setDrawer={setDrawer} />
-
-      <Container className='body__container'>
-        {children}
-      </Container>
-
-      <Footer />
-
-      <BackToTop />
+      {children}
     </React.Fragment>
-  )
-}
+
+    <Footer />
+
+    <BackToTop />
+  </React.Fragment>
+)
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([
@@ -35,5 +28,3 @@ Layout.propTypes = {
     PropTypes.object
   ])
 }
-
-export default Layout
