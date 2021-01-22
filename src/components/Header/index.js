@@ -6,85 +6,98 @@ import { TextLink } from '../TextLink'
 import LOGO from '../../images/logo_cores.png'
 import './style.scss'
 
-export const Header = () => {
-  const preventDefault = event => event.preventDefault()
-  const [headerClass, setHeaderClass] = useState('header')
-  const [textClass, setTextClass] = useState('')
-  const [mobile, setMobile] = useState(false)
+export class Header extends React.Component {
+  constructor(props) {
+    super(props)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scroll = window.scrollY > 480
-      setHeaderClass(scroll ? 'header header__solid' : 'header')
-      setTextClass(scroll ? 'header__text' : '')
+    this.state = {
+      headerClass: 'header',
+      textClass: '',
+      mobile: false
+    }
+  }
+
+  componentDidMount() {
+    if (typeof window !== 'undefined') this.setState({ mobile: window.innerWidth < 481 })
+
+    document.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('resize', this.handleWidth)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('resize', this.handleWidth)
+  }
+
+  handleScroll = () => {
+    const scroll = window.scrollY > 480
+    this.setState({
+      headerClass: scroll ? 'header header__solid' : 'header',
+      textClass: scroll ? 'header__text' : ''
+    })
+  }
+
+  handleWidth = () => {
+    if (typeof window !== 'undefined') this.setState({ mobile: window.innerWidth < 481 })
+  }
+
+  render() {
+    const { mobile, headerClass, textClass } = this.state
+
+    if (mobile) {
+      return (
+        <Box className="header header__solid">
+          <Link href="#" onClick={this.preventDefault}>
+            <img className="header__logo" src={LOGO} alt="logo" />
+          </Link>
+
+          <Box className="header__options">
+            <Box className="dropdown">
+              <Box className="header__menu">
+                <IconButton>
+                  <MenuIcon />
+                </IconButton>
+
+                <TextLink className="dropdown__text header__text">Menu</TextLink>
+              </Box>
+
+              <Box className="dropdown-content">
+                <TextLink>Serviços</TextLink>
+                <TextLink>Pedir Orçamento</TextLink>
+                <TextLink>Contactos</TextLink>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      )
     }
 
-    const handleWidth = () => {
-      if (typeof window !== 'undefined') setMobile(window.innerWidth < 481)
-    }
-
-    document.addEventListener('scroll', handleScroll)
-    window.addEventListener('resize', handleWidth)
-
-    return () => {
-      document.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleWidth)
-    }
-  }, [])
-
-  if (mobile) {
     return (
-      <Box className="header header__solid">
-        <Link href="#" onClick={preventDefault}>
+      <Box className={headerClass}>
+        <Link href="#" onClick={this.preventDefault}>
           <img className="header__logo" src={LOGO} alt="logo" />
         </Link>
 
         <Box className="header__options">
           <Box className="dropdown">
-            <Box className="header__menu">
-              <IconButton>
-                <MenuIcon />
-              </IconButton>
-
-              <TextLink className="dropdown__text header__text">Menu</TextLink>
-            </Box>
+            <TextLink className={`dropdown__text ${textClass}`}>
+              Serviços
+          </TextLink>
 
             <Box className="dropdown-content">
-              <TextLink>Serviços</TextLink>
-              <TextLink>Pedir Orçamento</TextLink>
-              <TextLink>Contactos</TextLink>
+              <TextLink>Cozinhas</TextLink>
+              <TextLink>Hoteis</TextLink>
+              <TextLink>Quartos</TextLink>
             </Box>
           </Box>
+
+          <TextLink className={`dropdown__text ${textClass}`}>Contactos</TextLink>
+        </Box>
+
+        <Box>
+          <Button variant="contained">Pedir Orçamento</Button>
         </Box>
       </Box>
     )
   }
-
-  return (
-    <Box className={headerClass}>
-      <Link href="#" onClick={preventDefault}>
-        <img className="header__logo" src={LOGO} alt="logo" />
-      </Link>
-
-      <Box className="header__options">
-        <Box className="dropdown">
-          <TextLink className={`dropdown__text ${textClass}`}>
-            Serviços
-          </TextLink>
-
-          <Box className="dropdown-content">
-            <TextLink>Cozinhas</TextLink>
-            <TextLink>Hoteis</TextLink>
-            <TextLink>Quartos</TextLink>
-          </Box>
-        </Box>
-
-        <TextLink className={`dropdown__text ${textClass}`}>Contactos</TextLink>
-      </Box>
-
-      <Box>
-        <Button variant="contained">Pedir Orçamento</Button>
-      </Box>
-    </Box>
-  )
 }
