@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Box, Button, Link } from '@material-ui/core'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import { TextLink } from '../TextLink'
+import { navigate } from 'gatsby'
+import { TextLink } from '../Text'
 import LOGO from '../../images/logo_cores.png'
 import './style.scss'
 
@@ -13,12 +14,13 @@ export class Header extends React.Component {
     this.state = {
       headerClass: 'header',
       textClass: '',
-      mobile: false
+      mobile: false,
     }
   }
 
   componentDidMount() {
-    if (typeof window !== 'undefined') this.setState({ mobile: window.innerWidth < 481 })
+    if (typeof window !== 'undefined')
+      this.setState({ mobile: window.innerWidth < 481 })
 
     document.addEventListener('scroll', this.handleScroll)
     window.addEventListener('resize', this.handleWidth)
@@ -33,12 +35,13 @@ export class Header extends React.Component {
     const scroll = window.scrollY > 480
     this.setState({
       headerClass: scroll ? 'header header__solid' : 'header',
-      textClass: scroll ? 'header__text' : ''
+      textClass: scroll ? 'header__text' : '',
     })
   }
 
   handleWidth = () => {
-    if (typeof window !== 'undefined') this.setState({ mobile: window.innerWidth < 481 })
+    if (typeof window !== 'undefined')
+      this.setState({ mobile: window.innerWidth < 481 })
   }
 
   render() {
@@ -47,10 +50,6 @@ export class Header extends React.Component {
     if (mobile) {
       return (
         <Box className="header header__solid">
-          <Link href="#" onClick={this.preventDefault}>
-            <img className="header__logo" src={LOGO} alt="logo" />
-          </Link>
-
           <Box className="header__options">
             <Box className="dropdown">
               <Box className="header__menu">
@@ -58,44 +57,78 @@ export class Header extends React.Component {
                   <MenuIcon />
                 </IconButton>
 
-                <TextLink className="dropdown__text header__text">Menu</TextLink>
+                <TextLink className="dropdown__text header__text">
+                  Menu
+                </TextLink>
               </Box>
 
               <Box className="dropdown-content">
-                <TextLink>Serviços</TextLink>
-                <TextLink>Pedir Orçamento</TextLink>
-                <TextLink>Contactos</TextLink>
+                <TextLink onClick={() => navigate('/servicos')}>
+                  Serviços
+                </TextLink>
+
+                <TextLink onClick={() => navigate('/orcamentos')}>
+                  Pedir Orçamento
+                </TextLink>
+
+                <TextLink onClick={() => navigate('/contactos')}>
+                  Contactos
+                </TextLink>
               </Box>
             </Box>
           </Box>
+
+          <Link href="#" onClick={() => navigate('/')}>
+            <img className="header__logo" src={LOGO} alt="logo" />
+          </Link>
         </Box>
       )
     }
 
     return (
       <Box className={headerClass}>
-        <Link href="#" onClick={this.preventDefault}>
+        <Link href="#" onClick={() => navigate('/')}>
           <img className="header__logo" src={LOGO} alt="logo" />
         </Link>
 
         <Box className="header__options">
           <Box className="dropdown">
-            <TextLink className={`dropdown__text ${textClass}`}>
+            <TextLink
+              className={`dropdown__text ${textClass}`}
+              onClick={() => navigate('/servicos')}
+            >
               Serviços
-          </TextLink>
+            </TextLink>
 
             <Box className="dropdown-content">
-              <TextLink>Cozinhas</TextLink>
-              <TextLink>Hoteis</TextLink>
-              <TextLink>Quartos</TextLink>
+              <TextLink onClick={() => navigate('/servicos')}>
+                Remodelação
+              </TextLink>
+
+              <TextLink onClick={() => navigate('/servicos')}>
+                Manutenção
+              </TextLink>
+
+              <TextLink onClick={() => navigate('/servicos')}>Áreas</TextLink>
             </Box>
           </Box>
 
-          <TextLink className={`dropdown__text ${textClass}`}>Contactos</TextLink>
+          <TextLink
+            className={`dropdown__text ${textClass}`}
+            onClick={() => navigate('/contactos')}
+          >
+            Contactos
+          </TextLink>
         </Box>
 
         <Box>
-          <Button variant="contained">Pedir Orçamento</Button>
+          <Button
+            className="header__button"
+            onClick={() => navigate('/orcamentos')}
+            variant="contained"
+          >
+            Pedir Orçamento
+          </Button>
         </Box>
       </Box>
     )

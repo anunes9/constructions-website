@@ -1,78 +1,125 @@
 import React from 'react'
 import { Box, Container, Typography } from '@material-ui/core'
+import { navigate } from 'gatsby'
+import { TextLink } from '../Text'
 import './style.scss'
-import { TextLink } from '../TextLink'
+
+const Remodelacao = [
+  'Armazéns',
+  'Casas de Banho',
+  'Cozinhas',
+  'Edifícios',
+  'Escritórios',
+  'Lojas'
+]
+
+const Manutencao = [
+  'Condomínios',
+  'Edifícios',
+  'Empresas',
+  'Hotéis',
+  'Moradias',
+  'Piscinas'
+]
+
+const Areas = [
+  'AVAC',
+  'Canalização',
+  'Carpintaria / Serralharia',
+  'Eletricidade',
+  'Pavimentos',
+  'Pintura / Pladur'
+]
 
 export const Footer = () => (
   <Box className="footer__container">
     <Container>
       <Box className="footer__text-container">
         <Box className="footer__inside-container">
-          <Typography className="footer__title">
+          <TextLink
+            className="footer__title"
+            onClick={() => navigate('/servicos')}
+          >
             Reabilitação e Remodelação
-          </Typography>
-
-          <TextLink className="footer__text">Edifícios</TextLink>
-
-          <TextLink className="footer__text">Edifícios</TextLink>
-
-          <TextLink className="footer__text">Cozinhas</TextLink>
-
-          <TextLink className="footer__text">Casas de Banho</TextLink>
-
-          <TextLink className="footer__text">Lojas</TextLink>
-
-          <TextLink className="footer__text">Escritórios</TextLink>
-
-          <TextLink className="footer__text">Armazéns</TextLink>
-        </Box>
-
-        <Box className="footer__inside-container">
-          <TextLink className="footer__title">Manutenção</TextLink>
-
-          <TextLink className="footer__text">Condomínios</TextLink>
-
-          <TextLink className="footer__text">Empresas</TextLink>
-
-          <TextLink className="footer__text">Edifícios</TextLink>
-
-          <TextLink className="footer__text">Moradias</TextLink>
-
-          <TextLink className="footer__text">Piscinas</TextLink>
-
-          <TextLink className="footer__text">Hotéis</TextLink>
-        </Box>
-
-        <Box className="footer__inside-container">
-          <TextLink className="footer__title">Áreas</TextLink>
-
-          <TextLink className="footer__text">Eletricidade</TextLink>
-
-          <TextLink className="footer__text">Canalização</TextLink>
-
-          <TextLink className="footer__text">AVAC</TextLink>
-
-          <TextLink className="footer__text">Pintura</TextLink>
-
-          <TextLink className="footer__text">Pladur</TextLink>
-
-          <TextLink className="footer__text">Pavimentos</TextLink>
-
-          <TextLink className="footer__text">
-            Carpintaria / Serralharia
           </TextLink>
+
+          {Remodelacao.map((text, i) => (
+            <TextLink
+              key={i}
+              className="footer__text"
+              onClick={() => navigate('/servicos')}
+            >
+              {text}
+            </TextLink>  
+          ))}
         </Box>
 
         <Box className="footer__inside-container">
-          <TextLink className="footer__title">
+          <TextLink
+            className="footer__title"
+            onClick={() => navigate('/servicos')}
+          >
+            Manutenção
+          </TextLink>
+
+          {Manutencao.map((text, i) => (
+            <TextLink
+              key={i}
+              className="footer__text"
+              onClick={() => navigate('/servicos')}
+            >
+              {text}
+            </TextLink>  
+          ))}
+        </Box>
+
+        <Box className="footer__inside-container">
+          <TextLink
+            className="footer__title"
+            onClick={() => navigate('/servicos')}
+          >
+            Áreas
+          </TextLink>
+
+          {Areas.map((text, i) => (
+            <TextLink
+              key={i}
+              className="footer__text"
+              onClick={() => navigate('/servicos')}
+            >
+              {text}
+            </TextLink>  
+          ))}
+        </Box>
+
+        <Box className="footer__inside-container">
+          <TextLink
+            className="footer__title"
+            onClick={() => navigate('/contactos')}
+          >
             Bem Feito Remodelações
           </TextLink>
 
-          <TextLink className="footer__text">Sobre nós</TextLink>
+          <TextLink
+            className="footer__text"
+            onClick={() => navigate('/contactos')}
+          >
+            Contactos
+          </TextLink>
 
-          <TextLink className="footer__text">Orçamentos</TextLink>
+          <TextLink
+            className="footer__text"
+            onClick={() => navigate('/orcamentos')}
+          >
+            Orçamentos
+          </TextLink>
 
-          <TextLink className="footer__text">Contactos</TextLink>
+          <TextLink
+            className="footer__text"
+            onClick={() => navigate('/contactos')}
+          >
+            Sobre nós
+          </TextLink>
         </Box>
       </Box>
 

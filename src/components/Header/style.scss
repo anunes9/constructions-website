@@ -12,7 +12,6 @@
   background: linear-gradient(to top, rgba(255,255,255,0), rgba(128,128,128,1));
 
   @media screen and (max-width: $mobile) {
-    flex-direction: row-reverse;
     justify-content: space-between;
     padding-right: 16px;
   }
@@ -27,10 +26,10 @@
   }
 
   &__logo {
-    height: 64px;
+    height: 72px;
 
     @media screen and (max-width: $mobile) {
-      height: 40px;
+      height: 56px;
     }
   }
 
@@ -43,6 +42,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  &__button {
+    background-color: $accent;
+
+    &:hover {
+      background-color: rbg(255, 204, 0);
+    }
   }
 }
 
